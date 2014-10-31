@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Rocket Flight Data Analysis</title>
+</head>
+<body>
+
+<h2>Rocket Telemetry Projet</h2>
+
+<p th:text="${message}"></p>
+
+<div>
+    <table>
+      <tbody>
+      <tr th:each="entry : ${results}">
+        <td th:text="|${entry.key}|" />
+        <td th:text="|${entry.value}|" />
+      </tr>
+      </tbody>
+    </table>
+</div>
+    
+</body>
+</html>

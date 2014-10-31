@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '1.1.4.RELEASE'
+		sparkVersion = "1.1.0"
+		hadoopVersion = "2.2.0"
+	}
+    repositories {
+    	mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'SparkForSpring'
+    version =  'S1.2014'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    versionManagement("io.spring.platform:platform-versions:1.0.1.RELEASE@properties")
+
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    {
+        exclude module: 'spring-boot-starter-logging'
+    }
+
+    compile("org.apache.spark:spark-core_2.10:${sparkVersion}")
+    compile("org.apache.hadoop:hadoop-client:${hadoopVersion}")
+
+    compile("org.projectlombok:lombok:1.14.8")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}

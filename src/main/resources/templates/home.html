@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>HELLO</title>
+    <link th:src="@{/css/telemetry.css}" rel="stylesheet"/>
+</head>
+<body>
+    <h2>Rocket Telemetry Projet</h2>
+
+    <p th:text="${message}"></p>
+
+<div>
+    <table>
+      <tbody>
+      <tr th:each="flight : ${flightList}">
+        <td th:text="|${flight.id}|" />
+        <td><a href="analysis.html" th:href="@{|analyze/${flight.id}|}" th:text="|${flight.fileName}|">---</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

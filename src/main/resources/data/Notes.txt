@@ -1,0 +1,9 @@
+$GP lines are NMEA strings off the GPS
+The tab separated values are: Time, altitude and acceleration
+(
+	milliseconds
+	relative altitude in feet
+	x acceleration in G's
+	y acceleration in G's
+	z acceleration in G's
+)
