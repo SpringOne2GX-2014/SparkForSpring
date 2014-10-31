@@ -20,6 +20,6 @@ For a simple run profile that just processes one of the data files pass
 Deploy Spark Cluster
 ====================
 
-I build spark from source (currently 1.1.0), and create a distribution.  From there
-I configure it (set names for slaves and point to specific JDK 1.8), tgz it, and scp
-it to my virtual servers (master, client, and 3 workers).
+I have not tested the app deployed to a cluster yet.  The sparkjar task that created the
+"UberJar", is still including the spark and hadoop clients.  After I get that fixed, I'll test
+it and deploy a version that's been tested on a cluster.
