@@ -22,7 +22,6 @@ import com.pivotal.demo.spark.rocket.dom.NMEA;
 import com.pivotal.demo.spark.rocket.dom.Telemetry;
 import com.pivotal.demo.spark.rocket.util.DOMUtil;
 
-@Profile("spark")
 @Service
 public class BatchAnalyzer implements AnalyzeService {
 	private static final Logger log = Logger.getLogger(BatchAnalyzer.class);

@@ -22,6 +22,19 @@ jar {
     version =  'S1.2014'
 }
 
+task sparkjar(type: Jar) {
+    from files(sourceSets.main.output.classesDir)
+    from {configurations.compile.collect {zipTree(it)}} {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+
+    manifest {
+        attributes 'Main-Class': 'com.pivotal.demo.spark.Application'
+    }
+}
+
 repositories {
     mavenCentral()
 }

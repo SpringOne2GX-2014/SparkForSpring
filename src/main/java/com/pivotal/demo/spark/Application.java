@@ -17,7 +17,7 @@ import com.pivotal.demo.spark.rocket.AnalyzeService;
 public class Application implements CommandLineRunner {
 	private static final Logger log = Logger.getLogger(Application.class);
 
-	@Value("${spring.profiles.active:spark}")
+	@Value("${spring.profiles.active:default}")
 	private String profiles;
 
 	@Value("${flight.id:0}")
@@ -29,13 +29,13 @@ public class Application implements CommandLineRunner {
 	// Use the run method when the app is launched as a job on the cluster
 	public void run(String... args) {
 		if (profiles.indexOf("web") < 0) {
-			log.warn("Web profile not declaired, so running as a command line application.\nParameters:");
+			log.warn("Web profile not declaired, running as a command line application.\nParameters:");
 			log.warn("\tflight.id (default 0)");
 			log.warn("\tfile.directory (default 0)");
-			log.warn("Analysis:\n" + aService.analyzeFlight(id).toString());
-		}
+			log.warn("\nAnalysis of flight ["+id+"]:\n" + aService.analyzeFlight(id).toString());
 
-		System.exit(0);
+			System.exit(0);
+		}
 	}
 
 	public static void main(String[] args) {
